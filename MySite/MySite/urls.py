@@ -19,5 +19,7 @@ from sitenathan import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.homepage)
+    path('',views.homepage),
+    path('about-me/',views.about_me),
+    path('front/',views.front),
 ]
