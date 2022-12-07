@@ -1,0 +1,59 @@
+body {
+    background-color: black;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0rem;
+    overflow: hidden;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* Used to enable scrolling */
+
+}
+
+
+#welcome {
+    display: flex;
+    position: absolute;
+    object-position: center;
+    color: white;
+    font-size: 50;
+
+}
+
+
+#box-container {
+    display: flex;
+    gap: 3vmin;
+    position: absolute;
+    left: 15%;
+    transform: translate(0%, 100%);
+}
+
+
+#box-container>.imgbox>.image {
+
+    object-fit: cover;
+    width: 20vmax;
+    height: 15vmax;
+    transition: filter 0.8s, width 0.8s;
+}
+
+#box-container>.imgbox {
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+#box-container>.imgbox>.text {
+    color: white;
+    visibility: hidden;
+    transition: visibility 0.8s;
+}
+
+
+
+#box-container>.imgbox>.image:hover {
+    filter: brightness(50%);
+    width: 500px;
+
+}
