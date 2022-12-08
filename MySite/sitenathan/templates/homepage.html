@@ -1,34 +1,35 @@
 {%load static%}
-<link rel="stylesheet" href="{% static 'css/homepage.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 
 
 <body>
 
-    <div id = "Welcome">
+    <div id="Welcome">
         <p> Bienvenue sur mon site </p>
     </div>
-    <div id = "box-container">
+    <div id="box-container">
 
-        <div class = "imgbox">
-            <img class = "image" src= {%static "img1.jpg"%}>
-            <div class = "text">
+        <div class="imgbox">
+
+            <img class="image" src={%static "img1.jpg" %}>
+            <div class="text">
                 Mon parcours
             </div>
         </div>
 
-        <div class = "imgbox">
-            <img class = "image" src= {%static "img2.jpg"%} >
-            <div class = "text">
+        <div class="imgbox">
+            <img class="image" src={%static "img2.jpg" %}>
+            <div class="text">
                 Mes projets
             </div>
         </div>
 
-        <div class = "imgbox">
-            <img class = "image" src= {%static "img3.jpg"%} >
-            <div class = "text">
+        <div class="imgbox">
+            <img class="image" src={%static "img3.jpg" %}>
+            <p class="text">
                 Cette image est sylée
-            </div>
+            </p>
         </div>
 
     </div>
-</body> 
+</body>

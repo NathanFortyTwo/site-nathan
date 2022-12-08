@@ -17,6 +17,8 @@ body {
     object-position: center;
     color: white;
     font-size: 50;
+    transform: translate(2vw, 0%);
+
 
 }
 
@@ -30,30 +32,34 @@ body {
 }
 
 
+
 #box-container>.imgbox>.image {
 
     object-fit: cover;
     width: 20vmax;
     height: 15vmax;
-    transition: filter 0.8s, width 0.8s;
+    z-index: 1;
+    transition: filter 0.8s, width 0.8s, opacity 1s;
+    overflow: hidden;
 }
 
 #box-container>.imgbox {
     text-align: center;
     vertical-align: middle;
-
 }
 
 #box-container>.imgbox>.text {
     color: white;
-    visibility: hidden;
+    visibility: visible;
+    position: static;
+    transform: translate(0%, -7vw);
+    user-select: none;
     transition: visibility 0.8s;
+    z-index: 0;
 }
 
 
-
 #box-container>.imgbox>.image:hover {
-    filter: brightness(50%);
     width: 500px;
-
+    opacity: 0.5;
 }
