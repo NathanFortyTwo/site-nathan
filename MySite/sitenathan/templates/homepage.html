@@ -1,6 +1,41 @@
-{%extends "base.html"%}
-{%block content%}
-<p>Coming soon...</p>
-{%endblock%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 
 
+<body>
+
+    <div id="Welcome">
+        <p> Bienvenue sur mon site </p>
+    </div>
+    <div id="box-container">
+
+        <div class="imgbox">
+            <a href="https://google.com" target="_blank">
+                <img class="image" src={%static "img1.jpg" %}>
+            </a>
+            <div class="text">
+                Mon parcours
+            </div>
+        </div>
+
+        <div class="imgbox">
+            <a href="https://youtube.com" target="_blank">
+                <img class="image" src={%static "img2.jpg" %}>
+            </a>
+            <div class="text">
+                Mes projets
+            </div>
+        </div>
+
+        <div class="imgbox">
+            <a href="https://github.com" target="_blank">
+                <img class="image" src={%static "img3.jpg" %}>
+            </a>
+            <p class="text">
+                Cette image est sylée
+            </p>
+        </div>
+
+    </div>
+
+</body>

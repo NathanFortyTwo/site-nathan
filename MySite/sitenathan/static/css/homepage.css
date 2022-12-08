@@ -1,0 +1,70 @@
+body {
+    background-color: black;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0rem;
+    overflow: hidden;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* Used to enable scrolling */
+    user-select: none;
+
+}
+
+#welcome {
+    display: flex;
+    position: absolute;
+    object-position: center;
+    color: white;
+    font-size: 50;
+    transform: translate(2vw, 0%);
+
+}
+
+#box-container {
+    display: flex;
+    gap: 3vmin;
+    position: absolute;
+    left: 15%;
+    transform: translate(0%, 100%);
+}
+
+
+
+.image {
+
+    object-fit: cover;
+    width: 20vmax;
+    height: 15vmax;
+    z-index: 1;
+    transition: filter 0.8s, width 0.8s, opacity 1s;
+    overflow: hidden;
+}
+
+
+.image:hover {
+    width: 30vw;
+    opacity: 0.3;
+
+}
+
+#box-container>.imgbox:hover>.text {
+    opacity: 1;
+
+}
+
+#box-container>.imgbox {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#box-container>.imgbox>.text {
+    color: rgb(209, 195, 195);
+
+    opacity: 0;
+    position: static;
+    transform: translate(0%, -7vw);
+    user-select: none;
+    transition: opacity 1s;
+    font-size: larger;
+}

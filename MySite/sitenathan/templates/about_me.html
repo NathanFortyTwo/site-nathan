@@ -1,4 +1,10 @@
 {%extends "base.html"%}
 
+{%block content%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/about-me.css' %}"> 
 
-Bonjour et bienvenue 
+<div>
+    <img src = {%static "CV.png"%}> </img>
+</div>
+{%endblock%}
