@@ -22,4 +22,7 @@ urlpatterns = [
     path('',views.homepage),
     path('about-me/',views.about_me),
     path('front/',views.front),
+    path('mon-parcours',views.parcours),
+    path('tweet',views.tweet),
+    
 ]
