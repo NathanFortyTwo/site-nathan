@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+
+    width: 95vw;
+    height: 1000vh;
+    margin: 0rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    user-select: none;
+    -ms-overflow-style: none;
+    display: flex;
+}
+
+.Year {
+    color: white;
+
+}
+
+.dot {
+    height: 2vh;
+    width: 2vh;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -1,0 +1,32 @@
+{%load static%}
+
+<link rel="stylesheet" href="{% static 'css/tweet.css' %}">
+<div class = top-space>
+</div>
+
+<div class = inputt>
+<form action = "/tweet" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type = "Submit" value = "Analyser" class = "submit-button">
+
+</div>
+
+
+<div class = container>
+    <div class = negative>Negative ⠀⠀</div>
+    <div class = line></div>  
+    <div class = vert style ="transform: translate({{bar_position}}vw, 0);"> </div>
+    <div class = positive>⠀ Positive </div>
+</div>
+
+<div class = test style ="font-size: {{float_result}}ch">
+
+</div>
+
+
+<div class= "explanation">
+<p>Write a short tweet, and let the artificial intelligence tell you wether it is positive or negative</p>
+<p>As of today, it only speaks english</p>
+</div>

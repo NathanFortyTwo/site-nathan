@@ -60,11 +60,11 @@ body {
 
 #box-container>.imgbox>.text {
     color: rgb(209, 195, 195);
-
     opacity: 0;
     position: static;
-    transform: translate(0%, -7vw);
+    transform: translate(0%, 8vw);
     user-select: none;
     transition: opacity 1s;
     font-size: larger;
+    user-select: none;
 }
