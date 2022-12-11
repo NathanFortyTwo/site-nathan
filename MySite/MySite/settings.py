@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import pickle
+from tensorflow import keras
+import tensorflow as tf
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,3 +125,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+def get_vectorizer(path):
+    from_disk = pickle.load(open(path, "rb"))
+    new_v = keras.layers.TextVectorization.from_config(from_disk['config'])
+    # You have to call `adapt` with some dummy data (BUG in Keras)
+    new_v.adapt(tf.data.Dataset.from_tensor_slices(["xyz"]))
+    new_v.set_weights(from_disk['weights'])
+    return new_v
+
+def load_model(path):
+    model = tf.keras.models.load_model(path)
+    return model
+
+vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
+model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
