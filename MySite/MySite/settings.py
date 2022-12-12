@@ -26,10 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5bis#b0ejt#3ddk#s&qt)9k*&z-$i9!24hi*4u^w2irk$-j5mh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DEBUG = True
+
+with open(str(BASE_DIR)+"/allowed.txt") as f:
+    lines = f.readlines()
+    for line in lines:
+        ALLOWED_HOSTS.append(line.strip())
 
 # Application definition
 
