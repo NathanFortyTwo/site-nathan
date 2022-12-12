@@ -37,3 +37,6 @@ def tweet(request):
 
         return render(request,'tweet.html',context=context)
         
+
+def projets(request):
+    return render(request,"projects_list.html")
