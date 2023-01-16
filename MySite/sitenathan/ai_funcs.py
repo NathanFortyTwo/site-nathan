@@ -1,6 +1,6 @@
 
 import numpy as np
-from MySite.settings import model,vectorizer
+#from MySite.settings import model,vectorizer
 
 
 
