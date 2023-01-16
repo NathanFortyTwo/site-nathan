@@ -2,9 +2,37 @@
 <link rel="stylesheet" href="{% static 'css/projects_list.css' %}">
 <body>
 
-    <div class="flipping-card">
+<div class="box-container">
 
-        <div class="flipping-card-in">
+    <div id = "card_0" class="flipping-card">
+
+        <div class="flipping-card-in" id = "card_in_0">
+            <div class="flipping-card-front">
+            <img src="{%static "carte_1_front.png"%}"/>
+            </div>
+        <div class="flipping-card-back">
+            <img src="{%static "carte_1_back.png"%}"/>
+        </div>
+    </div>
+
+    </div>
+
+    
+    <div id = "card_1" class="flipping-card">
+
+        <div class="flipping-card-in" id = "card_in_1">
+            <div class="flipping-card-front">
+            <img src="{%static "carte_1_front.png"%}"/>
+            </div>
+        <div class="flipping-card-back">
+            <img src="{%static "carte_1_back.png"%}"/>
+        </div>
+    </div>
+    </div>
+
+    <div id = "card_2" class="flipping-card">
+
+        <div class="flipping-card-in" id = "card_in_2">
             <div class="flipping-card-front">
             <img src="{%static "carte_1_front.png"%}"/>
             </div>
@@ -13,4 +41,8 @@
         </div>
 
     </div>
+
+</div>
+
 </body>
+<script src="{% static 'js/card.js' %}"></script>   
