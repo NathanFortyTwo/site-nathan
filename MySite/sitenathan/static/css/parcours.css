@@ -1,19 +1,35 @@
 body {
     background-color: black;
-
-    width: 95vw;
-    height: 1000vh;
     margin: 0rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    user-select: none;
     -ms-overflow-style: none;
     display: flex;
+
 }
+
+
+.header {
+    height: 5vh;
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    vertical-align: bottom;
+    background-color: blueviolet;
+    opacity: 0.8;
+    color: white;
+    bottom: 0%;
+}
+
+.download_button>a {
+    color: white;
+}
+
 
 .Year {
     color: white;
-
 }
+
 
 .dot {
     height: 2vh;
@@ -21,4 +37,17 @@ body {
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
+}
+
+.background-paralax {
+    height: 100vh;
+    width: 100vw;
+    background-position: 0%, 0%;
+    background-size: 2vmin 2vmin;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 30%,
+            transparent 9%);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
 }

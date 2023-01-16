@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import pickle
-from tensorflow import keras
-import tensorflow as tf
+#from tensorflow import keras
+#import tensorflow as tf
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-5bis#b0ejt#3ddk#s&qt)9k*&z-$i9!24hi*4u^w2irk$-j5mh
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 DEBUG = True
 
@@ -144,5 +144,5 @@ def load_model(path):
     model = tf.keras.models.load_model(path)
     return model
 
-vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
-model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
+#vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
+#model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
