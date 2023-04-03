@@ -18,6 +18,9 @@ def front(request):
 def parcours(request):
     return render(request,"mon-parcours.html")
 
+def test(request):
+    return render(request,"test.html")
+
 
 def tweet(request):
     if request.method=="GET":

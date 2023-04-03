@@ -2,15 +2,21 @@
 <link rel="stylesheet" href="{% static 'css/projects_list.css' %}">
 <body>
 
+<div class = "header">
+    Flip a card to access project
+</div>
 <div class="box-container">
 
     <div id = "card_0" class="flipping-card">
         <div class="flipping-card-in" id = "card_in_0">
             <div class="flipping-card-front">
-            <img src="{%static "carte_1_front.png"%}"/>
+            <img src="{%static "carte_1_front.png"%}" >
             </div>
         <div class="flipping-card-back">
-            <img src="{%static "carte_1_back.png"%}"/>
+            <a href ="/mes-projets/tweet">
+            
+        <img src="{%static "carte_1_back.png"%}"/>
+    </a>
         </div>
     </div>
    

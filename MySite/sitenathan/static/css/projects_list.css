@@ -7,6 +7,13 @@ body {
 
 }
 
+
+.header {
+    display: block;
+    text-align: center;
+    margin: 2rem;
+}
+
 .box-container {
     display: grid;
     grid-auto-rows: minmax(100px, auto);
@@ -61,9 +68,12 @@ body {
 
 }
 
+
+
 .flipping-card-front img {
-    width: 220px;
     margin-top: 1rem;
+    height: 250;
+    width: 300;
 }
 
 .flipping-card-back {

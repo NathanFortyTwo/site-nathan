@@ -25,5 +25,7 @@ urlpatterns = [
     path('mon-parcours',views.parcours),
     path('mes-projets',views.projets),
     path('mes-projets/tweet',views.tweet),
+    path('test',views.test),
+    
     
 ]
