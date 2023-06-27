@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Achievements</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .achievement {
+      display: flex;
+      margin-bottom: 40px;
+    }
+    
+    .achievement img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+    
+    .achievement-content {
+      flex: 1;
+    }
+    
+    .achievement-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .achievement-description {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Achievements</h1>
+  
+  <div class="achievement">
+    <img src="{% static 'img1.jpg' %}" alt="Achievement 1">
+    <div class="achievement-content">
+      <div class="achievement-title">Achievement 1</div>
+      <div class="achievement-description">Description of achievement 1.</div>
+    </div>
+  </div>
+  
+  <div class="achievement">
+    <img src="{% static 'img2.jpg' %}" alt="Achievement 2">
+    <div class="achievement-content">
+      <div class="achievement-title">Achievement 2</div>
+      <div class="achievement-description">Description of achievement 2.</div>
+    </div>
+  </div>
+  
+  <div class="achievement">
+    <img src="{% static 'img3.jpg' %}" alt="Achievement 3">
+    <div class="achievement-content">
+      <div class="achievement-title">Achievement 3</div>
+      <div class="achievement-description">Description of achievement 3.</div>
+    </div>
+  </div>
+</body>
+</html>

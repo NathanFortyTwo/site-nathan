@@ -1,70 +1,68 @@
 body {
-    background-color: black;
+    margin: 0;
+    padding: 0;
+}
 
-    width: 100vw;
+.container {
+    display: flex;
+    width: 100%;
     height: 100vh;
-    margin: 0rem;
     overflow: hidden;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* Used to enable scrolling */
-    user-select: none;
-
 }
 
-#welcome {
-    display: flex;
-    position: absolute;
-    object-position: center;
-    color: white;
-    font-size: 50;
-    transform: translate(2vw, 0%);
-
+.image-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
 }
 
-#box-container {
-    display: flex;
-    gap: 3vmin;
-    position: absolute;
-    left: 15%;
-    transform: translate(0%, 100%);
-}
-
-
-
-.image {
-
+.image-container img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    width: 20vmax;
-    height: 15vmax;
-    z-index: 1;
-    transition: filter 0.8s, width 0.8s, opacity 1s;
-    overflow: hidden;
+    transition: transform 1.2s, filter 0.5s;
 }
 
-
-.image:hover {
-    width: 30vw;
-    opacity: 0.3;
-
+.image-container:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.5);
 }
 
-#box-container>.imgbox:hover>.text {
-    opacity: 1;
-
-}
-
-#box-container>.imgbox {
-    text-align: center;
-    vertical-align: middle;
-}
-
-#box-container>.imgbox>.text {
-    color: rgb(209, 195, 195);
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
-    position: static;
-    transform: translate(0%, 8vw);
-    user-select: none;
-    transition: opacity 1s;
-    font-size: larger;
-    user-select: none;
+    transition: opacity 0.5s;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-container {
+        height: 33.33vh;
+    }
+
+    .image-container .overlay {
+        opacity: 1;
+    }
 }

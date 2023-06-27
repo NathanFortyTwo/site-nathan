@@ -21,6 +21,9 @@ def parcours(request):
 def test(request):
     return render(request,"test.html")
 
+def test2(request):
+    return render(request,"test-2.html")
+
 
 def tweet(request):
     if request.method=="GET":

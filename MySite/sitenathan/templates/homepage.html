@@ -1,45 +1,39 @@
-{%load static%}
-<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+<!DOCTYPE html>
+{% load static %}
 
-
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathan FERET</title>
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+</head>
 <body>
-
-    <div id="Welcome">
-        <p> Bienvenue sur mon site </p>
+    <div class="container">
+        <div class="image-container">
+            <a href="mon-parcours">
+                <img src="{% static 'parcours2.png' %}" alt="Image 1">
+                <div class="overlay">
+                    <div class="text">Mon parcours</div>
+                </div>
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="mes-projets">
+                <img src="{% static 'future.png' %}" alt="Image 2">
+                <div class="overlay">
+                    <div class="text">Mes projets</div>
+                </div>
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="https://github.com/NathanFortyTwo">
+                <img src="{% static 'github.jpg' %}" alt="Image 3">
+                <div class="overlay">
+                    <div class="text">Mon github</div>
+                </div>
+            </a>
+        </div>
     </div>
-    <div id="box-container">
-
-        <div class="imgbox">
-
-            <div class="text">
-                Mon Parcours
-            </div>
-            <a href="/mon-parcours">
-                <img class="image" src={%static "img1.jpg" %}>
-            </a>
-
-        </div>
-
-        <div class="imgbox">
-            <div class="text">
-                Mes Projets
-            </div>
-            <a href="/mes-projets" >
-                <img class="image" src={%static "img2.jpg" %}>
-            </a>
-
-        </div>
-
-        <div class="imgbox">
-            <div class="text">
-                Mon Github
-            </div>
-            <a href="https://github.com/NathanFortyTwo" target="_blank">
-                <img class="image" src={%static "img3.jpg" %}>
-            </a>
-
-        </div>
-
-    </div>
-
 </body>
+</html>
