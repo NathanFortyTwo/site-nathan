@@ -19,11 +19,11 @@ def parcours(request):
     return render(request,"mon-parcours.html")
 
 def test(request):
-    return render(request,"test.html",{"list_images":[{"name":"parcours2.png","title":"Blablabla c'est l'image 1","infos":"Informations!!! 1"},{"name":"future.png","title":"Image numero DOS","infos":"Informations!!!DOSSS"}]})
+    return render(request,"test.html")
 
-def test2(request):
-    return render(request,"test-2.html")
 
+def mosaic(request):
+    return render(request,"mosaic.html",{"list_images":[{"name":"parcours2.png","title":"Blablabla c'est l'image 1","details":"Informations!!! 1"},{"name":"future.png","title":"Image numero DOS","details":"Informations!!!DOSSS"}]})
 
 def tweet(request):
     if request.method=="GET":

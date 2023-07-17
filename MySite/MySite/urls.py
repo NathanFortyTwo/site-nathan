@@ -26,7 +26,7 @@ urlpatterns = [
     path('mes-projets',views.projets),
     path('mes-projets/tweet',views.tweet),
     path('test',views.test),
-    path('test-2',views.test2),
+    path('mosaic',views.mosaic),
     
     
 ]
