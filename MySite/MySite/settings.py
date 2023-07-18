@@ -10,31 +10,44 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 import pickle
-#from tensorflow import keras
-#import tensorflow as tf
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+import configparser
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+config = configparser.ConfigParser()
+config.read(str(BASE_DIR)+"/config.ini")
+config = config["DJANGO"]
+print(str(BASE_DIR)+"/config.ini")
+SECRET_KEY = config['SECRET_KEY']
+ALLOWED_HOSTS = config['ALLOWED_HOSTS'].split(', ')
+DEBUG = config.getboolean('DEBUG',False)
 
+
+from tensorflow import keras
+import tensorflow as tf
+
+def get_vectorizer(path):
+    from_disk = pickle.load(open(path, "rb"))
+    new_v = keras.layers.TextVectorization.from_config(from_disk['config'])
+    # You have to call `adapt` with some dummy data (BUG in Keras)
+    new_v.adapt(tf.data.Dataset.from_tensor_slices(["xyz"]))
+    new_v.set_weights(from_disk['weights'])
+    return new_v
+
+def load_model(path):
+    model = tf.keras.models.load_model(path)
+    return model
+
+vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
+model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5bis#b0ejt#3ddk#s&qt)9k*&z-$i9!24hi*4u^w2irk$-j5mh'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-ALLOWED_HOSTS = ["localhost"]
-
-DEBUG = True
-
-with open(str(BASE_DIR)+"/allowed.txt") as f:
-    lines = f.readlines()
-    for line in lines:
-        ALLOWED_HOSTS.append(line.strip())
 
 # Application definition
 
@@ -132,17 +145,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-def get_vectorizer(path):
-    from_disk = pickle.load(open(path, "rb"))
-    new_v = keras.layers.TextVectorization.from_config(from_disk['config'])
-    # You have to call `adapt` with some dummy data (BUG in Keras)
-    new_v.adapt(tf.data.Dataset.from_tensor_slices(["xyz"]))
-    new_v.set_weights(from_disk['weights'])
-    return new_v
-
-def load_model(path):
-    model = tf.keras.models.load_model(path)
-    return model
-
-#vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
-#model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")

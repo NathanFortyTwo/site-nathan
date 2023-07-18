@@ -3,3 +3,5 @@ __pycache__/
 db.sqlite3
 MySite/allowed.txt
 MySite/randomKey.txt
+.vscode/
+config.ini
