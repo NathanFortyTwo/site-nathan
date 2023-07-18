@@ -3,7 +3,7 @@ from sitenathan import forms
 # Create your views here.
 
 from sitenathan.ai_funcs import tweet_prediction
-
+from MySite.settings import BASE_DIR
 def homepage(request):
     return render(request,'homepage.html')
 
@@ -23,7 +23,14 @@ def test(request):
 
 
 def mosaic(request):
-    return render(request,"mosaic.html",{"list_images":[{"name":"parcours2.png","title":"Blablabla c'est l'image 1","details":"Informations!!! 1"},{"name":"future.png","title":"Image numero DOS","details":"Informations!!!DOSSS"}]})
+    images_names = ["seahorse.jpg","landscape.jpg","waterscore.png","mnist.jpeg","facemask.jpg"]
+    images_titles = ["Projet SeaROS","GeoGuessing","WaterScore","MNIST","FaceMask Detection"]
+    images_details = []
+    for name in images_names:
+        name=name.split(".")[0]+".txt"
+        with open(str(BASE_DIR)+f"/sitenathan/mosaic_desc/{name}","r") as f:
+            images_details.append(f.read())
+    return render(request,"mosaic.html",{"list_images":[{"name":images_names[k],"title":images_titles[k],"details":images_details[k]} for k in range(len(images_names))]})
 
 def tweet(request):
     if request.method=="GET":

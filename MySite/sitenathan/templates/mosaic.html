@@ -17,7 +17,7 @@
 
     </div>
     {%for image in list_images%}
-    <div class="card" id="card{{forloop.counter}}">{{image.details}}</div>
+    <div class="card" id="card{{forloop.counter}}">{{image.details|safe}}</div>
     {%endfor%}
     
     <div class="mask" id ="mask0" onclick="handleClickMask()"></div>
