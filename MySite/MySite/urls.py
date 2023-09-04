@@ -20,13 +20,12 @@ from sitenathan import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.homepage),
-    path('about-me',views.about_me),
     path('front',views.front),
     path('mon-parcours',views.parcours),
-    path('mes-projets',views.projets),
-    path('mes-projets/tweet',views.tweet),
-    path('test',views.test),
-    path('mosaic',views.mosaic),
+    #path('mes-projets',views.projets),
+    #path('test',views.test),
+    path('projets/tweet',views.tweet),
+    path('projets',views.mosaic),
     
     
 ]
