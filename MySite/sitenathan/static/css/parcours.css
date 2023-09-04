@@ -1,15 +1,13 @@
-body {
-    background-color: black;
+.line {
+
     margin: 0rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     -ms-overflow-style: none;
     display: absolute;
-    color: white;
     font-size: 50;
     margin-left: 17%;
     margin-right: 17%;
 }
-
 
 .header {
     padding-bottom: 5vh;
@@ -22,13 +20,6 @@ body {
     background: linear-gradient(360deg, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, 0) 81%, rgba(0, 0, 0, 0) 100%);
 }
 
-a {
-    color: rgb(26, 212, 229)
-}
-
-#tsp {
-    color: whitesmoke;
-}
 
 .download_button {
     color: white;
