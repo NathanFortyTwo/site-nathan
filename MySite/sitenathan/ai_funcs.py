@@ -1,4 +1,3 @@
-from tensorflow import errors
 import numpy as np
 
 from MySite.settings import model,vectorizer

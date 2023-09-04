@@ -19,29 +19,42 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 config = configparser.ConfigParser()
 config.read(str(BASE_DIR)+"/config.ini")
 config = config["DJANGO"]
-print(str(BASE_DIR)+"/config.ini")
 SECRET_KEY = config['SECRET_KEY']
 ALLOWED_HOSTS = config['ALLOWED_HOSTS'].split(', ')
 DEBUG = config.getboolean('DEBUG',False)
+print(DEBUG)
+
+if not DEBUG:    
+    print("hello")
+    from tensorflow import keras
+    import tensorflow as tf
+
+    def get_vectorizer(path):
+        from_disk = pickle.load(open(path, "rb"))
+        new_v = keras.layers.TextVectorization.from_config(from_disk['config'])
+        # You have to call `adapt` with some dummy data (BUG in Keras)
+        new_v.adapt(tf.data.Dataset.from_tensor_slices(["xyz"]))
+        new_v.set_weights(from_disk['weights'])
+        return new_v
+
+    def load_model(path):
+        model = tf.keras.models.load_model(path)
+        return model
+
+    vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
+    model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
 
 
-from tensorflow import keras
-import tensorflow as tf
+if DEBUG:
+    def get_vectorizer(path):
+        pass
 
-def get_vectorizer(path):
-    from_disk = pickle.load(open(path, "rb"))
-    new_v = keras.layers.TextVectorization.from_config(from_disk['config'])
-    # You have to call `adapt` with some dummy data (BUG in Keras)
-    new_v.adapt(tf.data.Dataset.from_tensor_slices(["xyz"]))
-    new_v.set_weights(from_disk['weights'])
-    return new_v
+    def load_model(path):
+        return
 
-def load_model(path):
-    model = tf.keras.models.load_model(path)
-    return model
+    vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
+    model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
 
-vectorizer = get_vectorizer(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/tv_layer.pkl")
-model = load_model(str(BASE_DIR)+"/sitenathan/IA/tweet_pred/Mymodel")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # Quick-start development settings - unsuitable for production
